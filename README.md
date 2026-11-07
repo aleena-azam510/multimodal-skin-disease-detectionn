@@ -1,170 +1,283 @@
 # Multimodal Skin Disease Detection and Diagnosis Support System
 
-A research-based AI application that combines dermatological image analysis with patient-reported symptoms to support skin disease identification through a multimodal late-fusion approach.
+**An AI-powered research application combining dermatological image analysis and symptom-based prediction using multimodal late fusion.**
 
-## Project Overview
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Django](https://img.shields.io/badge/Django-5.1.5-green?logo=django)
+![YOLO](https://img.shields.io/badge/YOLO-v12s-purple)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue?logo=postgresql)
+![Project](https://img.shields.io/badge/Status-Research%20Prototype-orange)
 
-Skin conditions can present with visually similar characteristics, making image-only classification challenging. This project explores a multimodal approach that combines visual features extracted from skin images with structured symptom information.
+## Overview
 
-The system integrates deep learning and machine learning techniques to generate predictions from two input modalities:
+Skin diseases can exhibit visually similar characteristics, making accurate identification challenging through image analysis alone. This project explores a multimodal artificial intelligence approach that combines dermatological image analysis with structured patient-reported symptoms.
 
-- **Image-based analysis:** Uses YOLOv12s for dermatological image analysis.
-- **Symptom-based analysis:** Uses a Logistic Regression model to process structured symptom information.
-- **Multimodal fusion:** Combines the outputs of both models using a late-fusion strategy.
+The system integrates deep learning and traditional machine learning models through a **late-fusion architecture** to generate predictions using two complementary information sources.
 
-The project was developed as a Final Year Project and research prototype. The application runs locally and is not presented as a clinically validated diagnostic system.
+Developed as a Computer Science Final Year Project, this research-based application demonstrates the integration of AI models with a Django web application and database-backed functionality.
+
+The application currently runs locally and is presented as a working research prototype rather than a publicly deployed or clinically validated diagnostic product.
 
 ## Key Features
 
-- Skin disease prediction from uploaded images.
-- Symptom-based prediction using structured patient inputs.
-- Multimodal prediction through late fusion.
-- Backend API functionality using Django REST Framework.
-- Database integration for application data.
-- User-facing application interface.
-- Research-oriented model evaluation.
+- **Image-Based Prediction:** Analyzes uploaded skin images using the YOLOv12s model.
+- **Symptom-Based Prediction:** Processes structured symptom information using Logistic Regression.
+- **Multimodal Late Fusion:** Combines predictions from image and symptom modalities.
+- **AI Model Integration:** Connects machine learning and deep learning models with backend application functionality.
+- **REST API Backend:** Uses Django REST Framework for backend services.
+- **User Authentication:** Supports application authentication and configured social login integrations.
+- **Database Integration:** Uses PostgreSQL for persistent application data.
+- **Interactive Application:** Provides a web-based interface for user interaction and prediction workflows.
 
 ## System Architecture
 
-The application follows a multimodal processing pipeline:
+The application follows a multimodal processing pipeline.
 
-1. Image input is processed by the YOLOv12s model.
-2. Symptom information is processed by the Logistic Regression model.
-3. Outputs from both modalities are combined through late fusion.
-4. The resulting prediction is returned through the application backend.
+```mermaid
+flowchart TD
+    A[User Input] --> B[Skin Image]
+    A --> C[Symptoms]
+    B --> D[YOLOv12s Model]
+    C --> E[Logistic Regression Model]
+    D --> F[Image Prediction]
+    E --> G[Symptom Prediction]
+    F --> H[Late Fusion]
+    G --> H
+    H --> I[Final Prediction]
+    I --> J[Django Application]
+    J --> K[User Interface]
+```
+
+### Multimodal Processing
+
+**1. Image Processing**
+
+Dermatological images are processed using YOLOv12s to extract image-based prediction information.
+
+**2. Symptom Processing**
+
+Structured symptom information is processed using a Logistic Regression model to generate symptom-based predictions.
+
+**3. Late Fusion**
+
+The outputs of both models are combined using a weighted late-fusion strategy to produce a multimodal prediction.
 
 ## Technology Stack
 
-| Area | Technologies |
+| Category | Technologies |
 |---|---|
-| Programming language | Python |
-| Deep learning | PyTorch, YOLOv12s |
-| Machine learning | Scikit-learn, Logistic Regression |
-| Backend | Django, Django REST Framework |
+| Programming Language | Python |
+| Deep Learning | PyTorch, YOLOv12s |
+| Machine Learning | Scikit-learn, Logistic Regression |
+| Backend Framework | Django 5.1.5 |
+| REST API | Django REST Framework |
 | Database | PostgreSQL |
-| Image processing | OpenCV, Pillow |
-| Data processing | NumPy, Pandas |
-| Development | Google Colab, Local Environment |
+| Image Processing | OpenCV, Pillow |
+| Data Processing | NumPy, Pandas |
+| Authentication | Django Allauth |
+| Static File Management | WhiteNoise |
+| Environment Configuration | python-dotenv |
+| Development Environment | Google Colab, Local Environment |
 
-## Dataset and Methodology
+## Dataset and Research Methodology
 
-The research used dermatological image data and structured symptom records.
+The research explored two complementary data modalities:
 
-- Image dataset: 2,880 dermatological images.
-- Symptom dataset: 248 structured records.
-- Image model: YOLOv12s.
-- Symptom model: Logistic Regression.
-- Fusion strategy: Weighted late fusion.
+| Dataset | Description |
+|---|---|
+| Dermatological Images | 2,880 skin images |
+| Structured Symptom Records | 248 records |
+| Image Model | YOLOv12s |
+| Symptom Model | Logistic Regression |
+| Fusion Strategy | Weighted Late Fusion |
+| Target Conditions | 16 skin conditions |
 
-Dataset usage and licensing should be checked against the original sources before redistribution.
+The image and symptom modalities were processed separately before their prediction outputs were combined through late fusion.
+
+*Dataset sources, usage rights, and licensing should be checked before redistribution. Dataset files are not necessarily included in this repository.*
 
 ## Repository Structure
 
-The project is organized into Django application modules, model-related components, utilities, and supporting configuration files.
+The repository is organized into Django application modules and supporting project components.
 
-Main components include:
+```text
+multimodal-skin-disease-detection/
+│
+├── chatbot/
+├── media/
+├── predictor/
+├── reviews/
+├── skin_identifier/
+├── skinpredictor/
+├── users/
+├── utils/
+│
+├── manage.py
+├── requirements.txt
+├── runtime.txt
+├── render.yaml
+├── .gitignore
+│
+└── README.md
+```
 
-- `predictor/` — prediction-related functionality.
-- `chatbot/` — chatbot-related functionality.
+Additional files and model assets may be present in the repository.
+
+### Main Components
+
+- `predictor/` — prediction-related application functionality.
 - `skin_identifier/` — skin identification functionality.
-- `skinpredictor/` — project configuration or prediction-related components.
-- `users/` — user-related functionality.
+- `chatbot/` — chatbot-related functionality.
+- `users/` — user management and authentication.
 - `reviews/` — review-related functionality.
-- `utils/` — supporting utilities.
+- `skinpredictor/` — main Django project configuration, URLs, and application settings.
+- `utils/` — shared utilities and supporting functionality.
 - `manage.py` — Django management entry point.
 
-## Local Installation and Execution
+## Installation and Local Setup
 
-### 1. Clone the repository
+Follow these instructions to run the application in a local development environment.
+
+### Prerequisites
+
+- Python 3.x
+- PostgreSQL
+- Git
+- pip
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/aleena-azam510/multimodal-skin-disease-detection.git
 cd multimodal-skin-disease-detection
 ```
 
-### 2. Create a virtual environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate it:
+Activate the environment.
 
 **Windows**
+
 ```bash
 venv\Scripts\activate
 ```
 
 **Linux/macOS**
+
 ```bash
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Database Configuration
+### 4. Configure Environment Variables
 
-The project uses Django settings for application and database configuration.
+The project uses `python-dotenv` to load environment variables from a `.env` file located in the project root.
 
-Before running the application:
+Create a `.env` file alongside `manage.py`.
+
+Example:
+
+```env
+SECRET_KEY=your-django-secret-key
+DEBUG=True
+
+ALLOWED_HOSTS=localhost,127.0.0.1
+CSRF_TRUSTED_ORIGINS=http://localhost:8000
+
+DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+
+# Google Authentication
+GOOGLE_CLIENT_ID=
+GOOGLE_SECRET=
+
+# Facebook Authentication
+FACEBOOK_CLIENT_ID=
+FACEBOOK_SECRET=
+
+# GitHub Authentication
+GITHUB_CLIENT_ID=
+GITHUB_SECRET=
+
+# Email Configuration
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=
+EMAIL_HOST_PASSWORD=
+```
+
+Replace the example values with your actual local configuration.
+
+**Important:** Never commit your `.env` file, Django secret key, database credentials, OAuth secrets, or email passwords to GitHub.
+
+### 5. Configure PostgreSQL
 
 1. Ensure PostgreSQL is installed and running.
-2. Create the database required by the project.
-3. Open the Django `settings.py` file.
-4. Configure the database connection according to your local PostgreSQL credentials.
-5. Ensure the database settings match your local environment.
+2. Create a local database.
+3. Update the `DATABASE_URL` value in `.env`.
+4. Verify that the database credentials and connection settings are correct.
 
-**Security note:** Database passwords and Django secret keys should not be committed to a public repository. For a production-ready configuration, use environment variables or a separate private configuration file.
-
-### 5. Apply Database Migrations
+### 6. Apply Database Migrations
 
 ```bash
 python manage.py migrate
 ```
 
-### 6. Run the Application
+### 7. Start the Development Server
 
 ```bash
 python manage.py runserver
 ```
 
-Open the local application at:
+Open the application in your browser:
 
-`http://127.0.0.1:8000/`
+**http://127.0.0.1:8000/**
 
-**Note:** These are the standard Django setup steps. Confirm the project's actual environment variables, database configuration, model-weight locations, and any additional setup steps before treating this section as a verified installation guide.
+*Note: The application may also require model weights and other assets to be available at their configured paths. Ensure these files are present before running prediction functionality.*
 
 ## Research Publication
 
+This project resulted in the following research publication:
+
 **Title:** Skin Diseases Detection and Diagnosis Support System Using YOLOv12s and Late Fusion Technique
-
-**Journal:** International Journal of Innovations in Science & Technology (IJIST)
-
-**Volume:** 7, Issue 10, Pages 55–67, November 2025
 
 **Authors:** Sahil Muneer, Aleena Azam, Yasir Arfat Malkani, Noor e Hira
 
-**Publication:** https://journal.50sea.com/index.php/IJIST/article/view/1723
+**Journal:** International Journal of Innovations in Science & Technology (IJIST)
 
-**DOI:** https://doi.org/10.33411/IJIST/1723
+**Volume:** 7, Issue 10, Pages 55–67
+
+**Publication Date:** November 2025
+
+- [Read the Published Research Paper](https://journal.50sea.com/index.php/IJIST/article/view/1723)
+- [View DOI](https://doi.org/10.33411/IJIST/1723)
 
 ## Project Status
 
-**Status:** Completed academic research project / working local prototype.
+**Completed Academic Research Project — Working Local Prototype**
 
-The application supports image-based and symptom-based prediction locally. It is not currently presented as a publicly hosted service or a clinically validated medical diagnostic tool.
+The application supports image-based and symptom-based prediction workflows and integrates the corresponding machine learning components with a Django backend.
 
-## Limitations and Future Work
+The project is currently maintained as a locally executable research prototype. It is not presented as a publicly hosted application or a clinically validated diagnostic system.
 
-- Further evaluation using larger and more diverse datasets.
-- Improved model generalization and robustness.
-- Additional testing across different image conditions.
+## Limitations and Future Enhancements
+
+Potential future improvements include:
+
+- Evaluation using larger and more diverse dermatological datasets.
 - Further validation of multimodal fusion performance.
-- Potential deployment as a hosted demonstration application.
+- Improving model generalization and prediction robustness.
+- Expanding testing across different image acquisition conditions.
+- Optimizing model inference and backend performance.
+- Preparing a publicly accessible demonstration deployment.
 
 ## Author
 
@@ -172,4 +285,8 @@ The application supports image-based and symptom-based prediction locally. It is
 
 BS Computer Science — Gold Medalist
 
-GitHub: https://github.com/aleena-azam510
+GitHub: [aleena-azam510](https://github.com/aleena-azam510)
+
+---
+
+*This project was developed for academic and research purposes. Its predictions are experimental and should not be used as a substitute for professional medical diagnosis.*
