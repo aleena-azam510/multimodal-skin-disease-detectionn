@@ -106,23 +106,27 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
+### 4. Database Configuration
 
-Create a local `.env` file using the environment variables required by the project settings.
+The project uses Django settings for application and database configuration.
 
-Do not commit credentials, secret keys, database passwords, or other sensitive configuration.
+Before running the application:
 
-### 5. Configure the database
+1. Ensure PostgreSQL is installed and running.
+2. Create the database required by the project.
+3. Open the Django `settings.py` file.
+4. Configure the database connection according to your local PostgreSQL credentials.
+5. Ensure the database settings match your local environment.
 
-Configure PostgreSQL using your local database credentials and the settings expected by the application.
+**Security note:** Database passwords and Django secret keys should not be committed to a public repository. For a production-ready configuration, use environment variables or a separate private configuration file.
 
-### 6. Apply database migrations
+### 5. Apply Database Migrations
 
 ```bash
 python manage.py migrate
 ```
 
-### 7. Start the development server
+### 6. Run the Application
 
 ```bash
 python manage.py runserver
