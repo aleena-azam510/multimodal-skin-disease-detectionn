@@ -1,24 +1,28 @@
-# Python
-__pycache__/
-*.pyc
-*.pyo
-
-# Django
-db.sqlite3
-.env
-.env.*
-staticfiles/
-
-# AI generated / user uploads
-media/ai_reports/
-media/annotated_reports/
-media/skin_images/
-media/skin_progress/
-
-# Virtual environment
-venv/
-env/
-
-# OS
+# Operating system files
+desktop.ini
 .DS_Store
 Thumbs.db
+
+# Python and Django
+__pycache__/
+*.py[cod]
+*.log
+db.sqlite3
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Database backups
+*.sql
+*.dump
+*.bak
+
+# Generated files
+staticfiles/
