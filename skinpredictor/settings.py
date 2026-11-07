@@ -19,8 +19,12 @@ def set_deterministic_environment(seed):
 set_deterministic_environment(SEED)
 
 # ---------------- SECURITY ----------------
-SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-dev-key')
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY environment variable is required.")
+    
+DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 'yes')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
 CSRF_TRUSTED_ORIGINS = os.environ.get(
