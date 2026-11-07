@@ -20,33 +20,53 @@ The application currently runs locally and is presented as a working research pr
 
 ## Key Features
 
-- **Image-Based Prediction:** Analyzes uploaded skin images using the YOLOv12s model.
+- **Image-Based Prediction:** Analyzes uploaded skin images using YOLOv12s.
 - **Symptom-Based Prediction:** Processes structured symptom information using Logistic Regression.
 - **Multimodal Late Fusion:** Combines predictions from image and symptom modalities.
-- **AI Model Integration:** Connects machine learning and deep learning models with backend application functionality.
-- **REST API Backend:** Uses Django REST Framework for backend services.
+- **AI Model Integration:** Connects machine learning and deep learning models with backend functionality.
+- **REST API Backend:** Uses Django REST Framework.
 - **User Authentication:** Supports application authentication and configured social login integrations.
 - **Database Integration:** Uses PostgreSQL for persistent application data.
-- **Interactive Application:** Provides a web-based interface for user interaction and prediction workflows.
+- **Interactive Interface:** Provides a web-based interface for prediction workflows.
+- **Treatment and Lifestyle Information:** Includes application features for displaying related information.
+
+## Application Screenshots
+
+The following screenshots demonstrate the application's interface and major functionality.
+
+### Home Page
+
+![Application Home Page](screenshots/home.png)
+
+### Prediction Workflow
+
+![Skin Disease Prediction](screenshots/prediction.png)
+
+![Prediction Results](screenshots/results.png)
+
+### Remedies and Treatment Information
+
+![Remedies](screenshots/remedies.png)
+
+![Medical Treatment](screenshots/medical%20treatment.png)
+
+![Treatment Information](screenshots/treatment.png)
+
+![Additional Treatment Information](screenshots/treatment%202.png)
+
+### Lifestyle Recommendations
+
+![Lifestyle Plan](screenshots/lifestyle%20plan.png)
+
+### Additional Home Page View
+
+![Additional Home Page](screenshots/home%20%282%29.png)
 
 ## System Architecture
 
-The application follows a multimodal processing pipeline.
+The application follows a multimodal processing pipeline in which image-based and symptom-based predictions are generated independently and combined through late fusion.
 
-```mermaid
-flowchart TD
-    A[User Input] --> B[Skin Image]
-    A --> C[Symptoms]
-    B --> D[YOLOv12s Model]
-    C --> E[Logistic Regression Model]
-    D --> F[Image Prediction]
-    E --> G[Symptom Prediction]
-    F --> H[Late Fusion]
-    G --> H
-    H --> I[Final Prediction]
-    I --> J[Django Application]
-    J --> K[User Interface]
-```
+![Multimodal System Architecture](docs/architecture.png)
 
 ### Multimodal Processing
 
@@ -98,10 +118,8 @@ The image and symptom modalities were processed separately before their predicti
 
 ## Repository Structure
 
-The repository is organized into Django application modules and supporting project components.
-
 ```text
-multimodal-skin-disease-detection/
+multimodal-skin-disease-detectionn/
 │
 ├── chatbot/
 ├── media/
@@ -112,16 +130,27 @@ multimodal-skin-disease-detection/
 ├── users/
 ├── utils/
 │
+├── screenshots/
+│   ├── home.png
+│   ├── home (2).png
+│   ├── prediction.png
+│   ├── results.png
+│   ├── remedies.png
+│   ├── medical treatment.png
+│   ├── treatment.png
+│   ├── treatment 2.png
+│   └── lifestyle plan.png
+│
+├── docs/
+│   └── architecture.png
+│
 ├── manage.py
 ├── requirements.txt
 ├── runtime.txt
 ├── render.yaml
 ├── .gitignore
-│
 └── README.md
 ```
-
-Additional files and model assets may be present in the repository.
 
 ### Main Components
 
@@ -130,8 +159,10 @@ Additional files and model assets may be present in the repository.
 - `chatbot/` — chatbot-related functionality.
 - `users/` — user management and authentication.
 - `reviews/` — review-related functionality.
-- `skinpredictor/` — main Django project configuration, URLs, and application settings.
+- `skinpredictor/` — main Django project configuration, URLs, and settings.
 - `utils/` — shared utilities and supporting functionality.
+- `screenshots/` — application screenshots.
+- `docs/` — project documentation and architecture diagram.
 - `manage.py` — Django management entry point.
 
 ## Installation and Local Setup
@@ -148,8 +179,8 @@ Follow these instructions to run the application in a local development environm
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aleena-azam510/multimodal-skin-disease-detection.git
-cd multimodal-skin-disease-detection
+git clone https://github.com/aleena-azam510/multimodal-skin-disease-detectionn.git
+cd multimodal-skin-disease-detectionn
 ```
 
 ### 2. Create a Virtual Environment
