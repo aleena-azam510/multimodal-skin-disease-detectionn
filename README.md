@@ -312,9 +312,9 @@ Potential future improvements include:
 
 ## Author
 
-**Aleena Azam**
+**Aleena Azam**, **Sahil Muneer**, **Noor e Hira**
 
-BS Computer Science — Gold Medalist
+BS Computer Science
 
 GitHub: [aleena-azam510](https://github.com/aleena-azam510)
 
