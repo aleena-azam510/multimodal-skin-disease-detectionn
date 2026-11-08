@@ -316,10 +316,12 @@ Potential future improvements include:
 
 BS Computer Science
 
-GitHub: [aleena-azam510](https://github.com/aleena-azam510)
-        [Sahil Muneer sario] (https://github.com/Sahil-Muneer-Sario)
-        [Noor e Hira] (https://github.com/Noore-hira)
+GitHub: 
+[aleena-azam510](https://github.com/aleena-azam510)
 
+[Sahil Muneer Sario](https://github.com/Sahil-Muneer-Sario)
+
+[Noor e Hira](https://github.com/Noore-hira)
 ---
 
 *This project was developed for academic and research purposes. Its predictions are experimental and should not be used as a substitute for professional medical diagnosis.*
