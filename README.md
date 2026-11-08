@@ -317,6 +317,8 @@ Potential future improvements include:
 BS Computer Science
 
 GitHub: [aleena-azam510](https://github.com/aleena-azam510)
+        [Sahil Muneer sario] (https://github.com/Sahil-Muneer-Sario)
+        [Noor e Hira] (https://github.com/Noore-hira)
 
 ---
 
